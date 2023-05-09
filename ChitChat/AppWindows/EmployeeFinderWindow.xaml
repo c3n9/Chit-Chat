@@ -1,0 +1,90 @@
+﻿<Window x:Class="ChitChat.AppWindows.EmployeeFinderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChitChat.AppWindows"
+        mc:Ignorable="d"
+        Title="EmployeeFinderWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="10">
+            <TextBlock Text="Departments"
+                   FontSize="18"/>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox x:Name="CBAdmin"
+                          VerticalAlignment="Center"
+                          Checked="Check_Checked"
+                          Unchecked="Check_Checked"/>
+                <TextBlock Text="Admin"
+                           FontSize="16"
+                           VerticalAlignment="Center"
+                           Margin="0,0,5,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox x:Name="CBITHelpdesk"
+                          VerticalAlignment="Center"
+                          Checked="Check_Checked"
+                          Unchecked="Check_Checked"/>
+                <TextBlock Text="IT Helpdesk"
+                           FontSize="16"
+                           VerticalAlignment="Center"
+                           Margin="0,0,5,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox x:Name="CBEngineering"
+                          VerticalAlignment="Center"
+                          Checked="Check_Checked"
+                          Unchecked="Check_Checked"/>
+                <TextBlock Text="Engineering"
+                           FontSize="16"
+                           VerticalAlignment="Center"
+                           Margin="0,0,5,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox x:Name="CBSales"
+                          VerticalAlignment="Center"/>
+                <TextBlock Text="Sales"
+                           FontSize="16"
+                           VerticalAlignment="Center"
+                           Margin="0,0,5,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox x:Name="CBMarketing"
+                          VerticalAlignment="Center"
+                          Checked="Check_Checked"
+                          Unchecked="Check_Checked"/>
+                <TextBlock Text="Marketing"
+                           FontSize="16"
+                           VerticalAlignment="Center"
+                           Margin="0,0,5,0"/>
+            </StackPanel>
+
+        </StackPanel>
+        <StackPanel Grid.Column="1"
+                    Margin="10">
+            <TextBlock Text="Search employee"
+                       FontSize="18"/>
+            <TextBox x:Name="TBSearch"
+                     FontSize="16"
+                     TextChanged="TBSearch_TextChanged"/>
+            
+            <ListView x:Name="LVEmployees"
+                      d:ItemsSource="{d:SampleData ItemCount=15}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Window>

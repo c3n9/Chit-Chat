@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e5a040ddeb5d4fd5853865c4a6a40a3b" Name="Diagram1">
+        <EntityTypeShape EntityType="ChitChatModel.ChatMessage" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChitChatModel.Chatroom" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChitChatModel.Department" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChitChatModel.Employee" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChitChatModel.EmployeeChatroom" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChitChatModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.875" IsExpanded="true" />
+        <AssociationConnector Association="ChitChatModel.FK_ChatMessage_Chatroom" ManuallyRouted="false" />
+        <AssociationConnector Association="ChitChatModel.FK_ChatMessage_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="ChitChatModel.FK_EmployeeChatroom_Chatroom" ManuallyRouted="false" />
+        <AssociationConnector Association="ChitChatModel.FK_Employee_Department1" ManuallyRouted="false" />
+        <AssociationConnector Association="ChitChatModel.FK_EmployeeChatroom_Employee" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

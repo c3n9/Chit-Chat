@@ -1,0 +1,50 @@
+﻿<Window x:Class="ChitChat.AppWindows.HelloWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChitChat.AppWindows"
+        mc:Ignorable="d"
+        Title="ChitChat" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="{Binding BindingGroupName, StringFormat='Hello {}'}"
+                       Margin="10"
+                       FontSize="24"/>
+            <TextBlock Text="Your open chatrooms"
+                       FontSize="18"
+                       Margin="10,0,0,0"/>
+            <DataGrid ColumnWidth="*"
+                      Margin="10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Topic" Binding="{Binding Topic}"/>
+                    <DataGridTextColumn Header="LastMessage" Binding="{Binding ChatMessage.Message}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <Button x:Name="BEmployeeFinder"
+                Content="Emplyee finder"
+                Click="BEmployeeFinder_Click"
+                HorizontalAlignment="Left"
+                Margin="10"
+                Background="#ffff"
+                BorderBrush="Black"
+                BorderThickness="2"
+                VerticalAlignment="Bottom"
+                Height="25"
+                Width="150"/>
+        <Button x:Name="BCloseApplication"
+                Content="Close Application"
+                Click="BCloseApplication_Click"
+                HorizontalAlignment="Right"
+                Margin="10"
+                Background="#ffff"
+                BorderBrush="Black"
+                BorderThickness="2"
+                Height="25"
+                Width="150"
+                VerticalAlignment="Bottom"/>
+
+
+    </Grid>
+</Window>
