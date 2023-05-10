@@ -1,5 +1,5 @@
 
-# $${\color{blue}ChitChat \space \color{lightblue}To \space \color{orange}Stackoverflow}$$
+# $${\color{blue}ChitChat \space \color{lightblue}}$$
 
 ## Login window
 
