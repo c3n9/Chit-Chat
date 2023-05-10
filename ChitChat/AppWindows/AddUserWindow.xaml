@@ -5,16 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChitChat.AppWindows"
         mc:Ignorable="d"
-        Title="AddUserWindow" Height="450" Width="800">
+        Title="ChitChat" Height="150" Width="200"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Resources/chat.ico">
     <Grid>
-        <TextBlock Text="Add User" />
-        <ComboBox x:Name="CBEmployee" 
-                  DisplayMemberPath="Name"/>
-        <Button x:Name="BAdd"
-                Content="Add"
-                Click="BAdd_Click" />
-        <Button x:Name="BCancel"
-                Content="Cancel"
-                Click="BCancel_Click" />
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Add User"
+                       HorizontalAlignment="Center"
+                       FontSize="16"/>
+            <ComboBox x:Name="CBEmployee" 
+                      DisplayMemberPath="Name"
+                      Width="155"
+                      Margin="0,5,0,5"/>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Button x:Name="BAdd"
+                        Content="Add"
+                        Click="BAdd_Click" 
+                        Background="#ffff"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        Width="75"
+                        Margin="0,0,5,0"/>
+                <Button x:Name="BCancel"
+                        Content="Cancel"
+                        Click="BCancel_Click"
+                        Background="#ffff"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        Width="75"/>
+            </StackPanel>
+            
+        </StackPanel>
+
     </Grid>
 </Window>

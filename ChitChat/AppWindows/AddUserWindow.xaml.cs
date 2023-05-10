@@ -21,21 +21,29 @@ namespace ChitChat.AppWindows
     public partial class AddUserWindow : Window
     {
         EmployeeChatroom contextEmployeeChatroom;
-        public AddUserWindow(EmployeeChatroom employeeChatroom)
+        Employee contextEmployee;
+        public AddUserWindow(EmployeeChatroom employeeChatroom, Employee employee)
         {
             InitializeComponent();
             contextEmployeeChatroom = employeeChatroom;
-            CBEmployee.ItemsSource = App.DB.EmployeeChatroom.Where(x=> x.Chatroom_Id == contextEmployeeChatroom.Chatroom_Id).ToList();
+            contextEmployee = employee;
+            CBEmployee.ItemsSource = App.DB.Employee.ToList();
         }
 
         private void BAdd_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
+            var employee = CBEmployee.SelectedItem as Employee;
+            var employeeChatroom = new EmployeeChatroom() { Employee_Id=employee.Id, Chatroom_Id= contextEmployeeChatroom.Chatroom_Id};
+            App.DB.EmployeeChatroom.Add(employeeChatroom);
+            App.DB.SaveChanges();
+            this.Close();
+            new ChatRoomWindow(contextEmployeeChatroom,contextEmployee).ShowDialog();
         }
 
         private void BCancel_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = false;
+            this.Close();
+            new ChatRoomWindow(contextEmployeeChatroom, contextEmployee).ShowDialog();
         }
     }
 }

@@ -143,6 +143,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelChitChat.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Partials\EmployeeChatroom.cs" />
     <Compile Include="Model\sysdiagrams.cs">
       <DependentUpon>ModelChitChat.tt</DependentUpon>
     </Compile>
@@ -191,6 +192,7 @@
       <DependentUpon>ModelChitChat.edmx</DependentUpon>
       <LastGenOutput>ModelChitChat.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\chat.ico" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

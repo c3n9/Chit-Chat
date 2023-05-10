@@ -35,7 +35,7 @@ namespace ChitChat.AppWindows
         private void BEmployeeFinder_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            new EmployeeFinderWindow().ShowDialog();
+            new EmployeeFinderWindow(contextEmployee).ShowDialog();
         }
 
         private void BCloseApplication_Click(object sender, RoutedEventArgs e)
@@ -51,7 +51,8 @@ namespace ChitChat.AppWindows
                 MessageBox.Show("Select chatroom");
                 return;
             }
-            new ChatRoomWindow(employeeChatroom).ShowDialog();
+            this.Close();
+            new ChatRoomWindow(employeeChatroom, contextEmployee).ShowDialog();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

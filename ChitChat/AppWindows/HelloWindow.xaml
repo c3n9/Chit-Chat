@@ -6,10 +6,13 @@
         xmlns:local="clr-namespace:ChitChat.AppWindows"
         mc:Ignorable="d"
         Title="ChitChat" Height="450" Width="800"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Resources/chat.ico">
     <Grid>
         <StackPanel>
-            <TextBlock Text="{Binding BindingGroupName, StringFormat='Hello {}'}"
+            <TextBlock Text="{Binding Name, StringFormat='Hello {0}'}"
                        Margin="10"
                        FontSize="24"/>
             <TextBlock Text="Your open chatrooms"
@@ -24,7 +27,7 @@
                       MouseDoubleClick="DGChats_MouseDoubleClick">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Topic" Binding="{Binding Chatroom.Topic}"/>
-                    <DataGridTextColumn Header="LastMessage" Binding="{Binding Chatroom.ChatMessage.Message}"/>
+                    <DataGridTextColumn Header="LastMessage" Binding="{Binding LastChatMessage}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

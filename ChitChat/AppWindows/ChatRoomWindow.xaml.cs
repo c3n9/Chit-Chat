@@ -21,12 +21,13 @@ namespace ChitChat.AppWindows
     public partial class ChatRoomWindow : Window
     {
         EmployeeChatroom contextEmployeeChatroom;
-
-        public ChatRoomWindow(EmployeeChatroom employeeChatroom)
+        Employee contextEmployee;
+        public ChatRoomWindow(EmployeeChatroom employeeChatroom, Employee employee)
         {
             InitializeComponent();
             contextEmployeeChatroom = employeeChatroom;
             DataContext = contextEmployeeChatroom;
+            contextEmployee= employee;
             Refresh();
         }
 
@@ -37,12 +38,14 @@ namespace ChitChat.AppWindows
         }
         private void BAddUser_Click(object sender, RoutedEventArgs e)
         {
-            new AddUserWindow(contextEmployeeChatroom).ShowDialog();
+            this.Close();
+            new AddUserWindow(contextEmployeeChatroom,contextEmployee).ShowDialog();
         }
 
         private void BChangeTopic_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            new HelloWindow(contextEmployee).ShowDialog();
         }
 
         private void BLeave_Click(object sender, RoutedEventArgs e)
@@ -50,6 +53,7 @@ namespace ChitChat.AppWindows
             App.DB.EmployeeChatroom.Remove(contextEmployeeChatroom);
             App.DB.SaveChanges();
             this.DialogResult = true;
+            new HelloWindow(contextEmployee).ShowDialog();
         }
 
         private void BSend_Click(object sender, RoutedEventArgs e)

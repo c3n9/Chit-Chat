@@ -24,8 +24,8 @@ namespace ChitChat
     {
         public MainWindow()
         {
-            InitializeComponent();            
+            InitializeComponent();
             new LoginWindow().ShowDialog();
-        }     
+        }
     }
 }

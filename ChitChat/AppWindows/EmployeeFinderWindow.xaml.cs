@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChitChat.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,11 @@ namespace ChitChat.AppWindows
     /// </summary>
     public partial class EmployeeFinderWindow : Window
     {
-        public EmployeeFinderWindow()
+        Employee contextEmployee;
+        public EmployeeFinderWindow(Employee employee)
         {
             InitializeComponent();
+            contextEmployee=employee;
             Refresh();
         }
         private void Refresh()
@@ -51,6 +54,12 @@ namespace ChitChat.AppWindows
         private void TBSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             Refresh();
+        }
+
+        private void BCLose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            new HelloWindow(contextEmployee).ShowDialog();
         }
     }
 }

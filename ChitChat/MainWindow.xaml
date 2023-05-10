@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChitChat"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        Visibility="Hidden">
+        Title="ChitChat" Height="450" Width="800"
+        Visibility="Hidden"
+        Icon="/Resources/chat.ico">
     <Grid>
         
     </Grid>

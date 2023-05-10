@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChitChat.AppWindows"
         mc:Ignorable="d"
-        Title="EmployeeFinderWindow" Height="450" Width="800">
+        Title="ChitChat" Height="450" Width="800"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Resources/chat.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -68,8 +71,17 @@
         </StackPanel>
         <StackPanel Grid.Column="1"
                     Margin="10">
-            <TextBlock Text="Search employee"
+            <Grid Margin="0,0,0,10">
+                <TextBlock Text="Search employee"
                        FontSize="18"/>
+                <Button x:Name="BCLose"
+                        Content="CLose"
+                        Click="BCLose_Click"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        Background="White"
+                        HorizontalAlignment="Right"/>
+            </Grid>
             <TextBox x:Name="TBSearch"
                      FontSize="16"
                      TextChanged="TBSearch_TextChanged" />
