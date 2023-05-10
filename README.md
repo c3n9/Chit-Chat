@@ -1,5 +1,6 @@
-# <font color="#54b9f7"> **Chit-Chat** </font>
-<font color="#54b9f7"> **Chit-Chat** </font>
+
+# $${\color{blue}ChitChat \space \color{lightblue}To \space \color{orange}Stackoverflow}$$
+
 ## Login window
 
 ![image](https://github.com/c3n9/Chit-Chat/assets/108518693/e55e6071-d037-4bb2-b87c-0983548fee19)
