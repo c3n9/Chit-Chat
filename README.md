@@ -1,4 +1,4 @@
-# **Chit-Chat** The background color is `#ffffff` for light mode and `#000000` for dark mode.
+# <font color="#54b9f7"> **Chit-Chat** </font>
 
 ## Login window
 
