@@ -1,4 +1,4 @@
-### Chit-Chat
+# Chit-Chat
 
 ## Login window
 
