@@ -1,5 +1,5 @@
 
-# $${\color{blue}ChitChat \space \color{lightblue}}$$
+# $${\color{blue}ChitChat}$$
 
 ## Login window
 
