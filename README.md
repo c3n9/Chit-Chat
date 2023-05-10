@@ -4,7 +4,7 @@
 ## Login window
 
 ![image](https://github.com/c3n9/Chit-Chat/assets/108518693/e55e6071-d037-4bb2-b87c-0983548fee19)
-## $${\color{blue}Hello \space window}$$
+## Hello window
 
 ![image](https://github.com/c3n9/Chit-Chat/assets/108518693/f052fbde-d44b-4474-b53a-36fb19d15138)
 ## Employee finder window
