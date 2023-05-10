@@ -46,7 +46,9 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <CheckBox x:Name="CBSales"
-                          VerticalAlignment="Center"/>
+                          VerticalAlignment="Center"
+                          Checked="Check_Checked"
+                          Unchecked="Check_Checked" />
                 <TextBlock Text="Sales"
                            FontSize="16"
                            VerticalAlignment="Center"
@@ -70,18 +72,18 @@
                        FontSize="18"/>
             <TextBox x:Name="TBSearch"
                      FontSize="16"
-                     TextChanged="TBSearch_TextChanged"/>
-            
+                     TextChanged="TBSearch_TextChanged" />
             <ListView x:Name="LVEmployees"
-                      d:ItemsSource="{d:SampleData ItemCount=15}">
+                      Width="auto">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="{Binding Name}"
+                                   Width="auto" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Vertical"/>
+                        <WrapPanel Orientation="Vertical" />
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
             </ListView>

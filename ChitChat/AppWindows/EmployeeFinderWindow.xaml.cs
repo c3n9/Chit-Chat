@@ -43,7 +43,12 @@ namespace ChitChat.AppWindows
             LVEmployees.ItemsSource = filtred;
         }
 
-        private void Check_TextChanged(object sender, TextChangedEventArgs e)
+        private void Check_Checked(object sender, RoutedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void TBSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             Refresh();
         }

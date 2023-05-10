@@ -10,15 +10,15 @@
         <StackPanel HorizontalAlignment="Center"
                     VerticalAlignment="Center">
             <TextBlock Text="Username:"
-                       FontSize="18"/>
+                       FontSize="18" />
             <TextBox x:Name="TBUsername"
                      FontSize="18"
-                     Text ="cjoyce"/>
+                     Text="cjoyce" />
             <TextBlock Text="Password:"
-                       FontSize="18"/>
+                       FontSize="18" />
             <PasswordBox x:Name="PBPassword"
                          FontSize="18"
-                         Password="cejoyce10"/>
+                         Password="cejoyce10" />
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center">
                 <Button x:Name="BLogin"
@@ -29,7 +29,7 @@
                         Background="#54b9f7"
                         BorderBrush="Black"
                         BorderThickness="2"
-                        Margin="5"/>
+                        Margin="5" />
                 <Button x:Name="BCancel"
                         Content="Cancel"
                         Click="BCancel_Click"
@@ -38,7 +38,7 @@
                         Background="#ffff"
                         BorderBrush="Black"
                         BorderThickness="2"
-                        Margin="5"/>
+                        Margin="5" />
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChitChat.AppWindows"
         mc:Ignorable="d"
-        Title="ChitChat" Height="450" Width="800">
+        Title="ChitChat" Height="450" Width="800"
+        Loaded="Window_Loaded">
     <Grid>
         <StackPanel>
             <TextBlock Text="{Binding BindingGroupName, StringFormat='Hello {}'}"
@@ -15,10 +16,15 @@
                        FontSize="18"
                        Margin="10,0,0,0"/>
             <DataGrid ColumnWidth="*"
-                      Margin="10">
+                      Margin="10"
+                      x:Name="DGChats"
+                      IsReadOnly="True"
+                      CanUserAddRows="False"
+                      AutoGenerateColumns="False"
+                      MouseDoubleClick="DGChats_MouseDoubleClick">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Topic" Binding="{Binding Topic}"/>
-                    <DataGridTextColumn Header="LastMessage" Binding="{Binding ChatMessage.Message}"/>
+                    <DataGridTextColumn Header="Topic" Binding="{Binding Chatroom.Topic}"/>
+                    <DataGridTextColumn Header="LastMessage" Binding="{Binding Chatroom.ChatMessage.Message}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
@@ -43,8 +49,6 @@
                 BorderThickness="2"
                 Height="25"
                 Width="150"
-                VerticalAlignment="Bottom"/>
-
-
+                VerticalAlignment="Bottom" />
     </Grid>
 </Window>

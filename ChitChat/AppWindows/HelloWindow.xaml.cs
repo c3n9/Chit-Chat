@@ -20,12 +20,18 @@ namespace ChitChat.AppWindows
     /// </summary>
     public partial class HelloWindow : Window
     {
+        Employee contextEmployee;
         public HelloWindow(Employee employee)
         {
             InitializeComponent();
-            DataContext = employee;
+            contextEmployee=employee;
+            DataContext = contextEmployee;
+            
         }
-
+        private void Refresh()
+        {
+            DGChats.ItemsSource = App.DB.EmployeeChatroom.Where(x => x.Employee_Id == contextEmployee.Id).ToList();
+        }
         private void BEmployeeFinder_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -35,6 +41,22 @@ namespace ChitChat.AppWindows
         private void BCloseApplication_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void DGChats_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var employeeChatroom = DGChats.SelectedItem as EmployeeChatroom;
+            if(employeeChatroom == null)
+            {
+                MessageBox.Show("Select chatroom");
+                return;
+            }
+            new ChatRoomWindow(employeeChatroom).ShowDialog();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Refresh();
         }
     }
 }
