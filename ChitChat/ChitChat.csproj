@@ -64,7 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AppWindows\AddUserWindow.xaml">
+    <Page Include="AppWindows\ChangeTopicWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -80,10 +80,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppWindows\LoginWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -92,8 +88,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AppWindows\AddUserWindow.xaml.cs">
-      <DependentUpon>AddUserWindow.xaml</DependentUpon>
+    <Compile Include="AppWindows\ChangeTopicWindow.xaml.cs">
+      <DependentUpon>ChangeTopicWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppWindows\ChatRoomWindow.xaml.cs">
       <DependentUpon>ChatRoomWindow.xaml</DependentUpon>
@@ -103,9 +99,6 @@
     </Compile>
     <Compile Include="AppWindows\HelloWindow.xaml.cs">
       <DependentUpon>HelloWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AppWindows\LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

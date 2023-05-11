@@ -5,88 +5,102 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChitChat.AppWindows"
         mc:Ignorable="d"
-        Title="ChitChat" Height="450" Width="800"
+        Title="ChitChat"
+        Height="450"
+        Width="800"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
         Icon="/Resources/chat.ico">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <StackPanel Margin="10">
             <TextBlock Text="Departments"
-                   FontSize="18"/>
+                       FontSize="18" />
             <StackPanel Orientation="Horizontal">
                 <CheckBox x:Name="CBAdmin"
                           VerticalAlignment="Center"
                           Checked="Check_Checked"
-                          Unchecked="Check_Checked"/>
+                          Unchecked="Check_Checked" 
+                          IsChecked="True"/>
                 <TextBlock Text="Admin"
                            FontSize="16"
                            VerticalAlignment="Center"
-                           Margin="0,0,5,0"/>
+                           Margin="0,0,5,0" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <CheckBox x:Name="CBITHelpdesk"
                           VerticalAlignment="Center"
                           Checked="Check_Checked"
-                          Unchecked="Check_Checked"/>
+                          Unchecked="Check_Checked"
+                          IsChecked="True" />
                 <TextBlock Text="IT Helpdesk"
                            FontSize="16"
                            VerticalAlignment="Center"
-                           Margin="0,0,5,0"/>
+                           Margin="0,0,5,0" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <CheckBox x:Name="CBEngineering"
                           VerticalAlignment="Center"
                           Checked="Check_Checked"
-                          Unchecked="Check_Checked"/>
+                          Unchecked="Check_Checked"
+                          IsChecked="True" />
                 <TextBlock Text="Engineering"
                            FontSize="16"
                            VerticalAlignment="Center"
-                           Margin="0,0,5,0"/>
+                           Margin="0,0,5,0" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <CheckBox x:Name="CBSales"
                           VerticalAlignment="Center"
                           Checked="Check_Checked"
-                          Unchecked="Check_Checked" />
+                          Unchecked="Check_Checked"
+                          IsChecked="True" />
                 <TextBlock Text="Sales"
                            FontSize="16"
                            VerticalAlignment="Center"
-                           Margin="0,0,5,0"/>
+                           Margin="0,0,5,0" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <CheckBox x:Name="CBMarketing"
                           VerticalAlignment="Center"
                           Checked="Check_Checked"
-                          Unchecked="Check_Checked"/>
+                          Unchecked="Check_Checked"
+                          IsChecked="True" />
                 <TextBlock Text="Marketing"
                            FontSize="16"
                            VerticalAlignment="Center"
-                           Margin="0,0,5,0"/>
+                           Margin="0,0,5,0" />
             </StackPanel>
 
         </StackPanel>
-        <StackPanel Grid.Column="1"
-                    Margin="10">
-            <Grid Margin="0,0,0,10">
-                <TextBlock Text="Search employee"
-                       FontSize="18"/>
+        <DockPanel Grid.Column="1"
+                   Margin="10">
+            <Grid Margin="0,0,0,10"
+                  DockPanel.Dock="Top">
+                <StackPanel>
+                    <TextBlock Text="Search employee"
+                               FontSize="18" />
+                    <TextBox x:Name="TBSearch"
+                             FontSize="16"
+                             TextChanged="TBSearch_TextChanged" />
+                </StackPanel>
                 <Button x:Name="BCLose"
                         Content="CLose"
                         Click="BCLose_Click"
                         BorderBrush="Black"
                         BorderThickness="2"
                         Background="White"
-                        HorizontalAlignment="Right"/>
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right" />
             </Grid>
-            <TextBox x:Name="TBSearch"
-                     FontSize="16"
-                     TextChanged="TBSearch_TextChanged" />
+
             <ListView x:Name="LVEmployees"
-                      Width="auto">
+                      Width="auto"
+                      MouseDoubleClick="LVEmployees_MouseDoubleClick">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Name}"
@@ -99,6 +113,6 @@
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
             </ListView>
-        </StackPanel>
+        </DockPanel>
     </Grid>
 </Window>

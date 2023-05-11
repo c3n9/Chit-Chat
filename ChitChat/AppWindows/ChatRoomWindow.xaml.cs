@@ -20,49 +20,63 @@ namespace ChitChat.AppWindows
     /// </summary>
     public partial class ChatRoomWindow : Window
     {
-        EmployeeChatroom contextEmployeeChatroom;
-        Employee contextEmployee;
-        public ChatRoomWindow(EmployeeChatroom employeeChatroom, Employee employee)
+        Chatroom contextChatroom;
+        public ChatRoomWindow(Chatroom chatroom)
         {
             InitializeComponent();
-            contextEmployeeChatroom = employeeChatroom;
-            DataContext = contextEmployeeChatroom;
-            contextEmployee= employee;
+            contextChatroom = chatroom;
+            DataContext = contextChatroom;
             Refresh();
         }
 
         private void Refresh()
         {
-            LVChatMessages.ItemsSource = App.DB.ChatMessage.Where(x=> x.Chatroom_Id == contextEmployeeChatroom.Chatroom_Id).ToList();
-            LVEmployees.ItemsSource = App.DB.EmployeeChatroom.Where(x => x.Chatroom_Id == contextEmployeeChatroom.Chatroom_Id).ToList();
+            LVChatMessages.ItemsSource = App.DB.ChatMessage.Where(x=> x.Chatroom_Id == contextChatroom.Id).ToList();
+            LVEmployees.ItemsSource = App.DB.EmployeeChatroom.Where(x => x.Chatroom_Id == contextChatroom.Id).Select(x => x.Employee).ToList();
+            if(LVChatMessages.ItemsSource != null)
+            {
+                var lastItem = LVChatMessages.ItemsSource.Cast<Object>().LastOrDefault();
+                LVChatMessages.ScrollIntoView(lastItem);
+            }
         }
         private void BAddUser_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-            new AddUserWindow(contextEmployeeChatroom,contextEmployee).ShowDialog();
+            var result = new EmployeeFinderWindow(contextChatroom).ShowDialog();
+            if (result.Value)
+                Refresh();
         }
 
         private void BChangeTopic_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-            new HelloWindow(contextEmployee).ShowDialog();
+            var result = new ChangeTopicWindow(contextChatroom, App.LoggedEmployee).ShowDialog();
+            if(result.Value) 
+                Refresh();
         }
 
         private void BLeave_Click(object sender, RoutedEventArgs e)
         {
-            App.DB.EmployeeChatroom.Remove(contextEmployeeChatroom);
+            App.DB.EmployeeChatroom.Remove(contextChatroom.EmployeeChatroom.FirstOrDefault(x => x.Employee_Id == App.LoggedEmployee.Id));
             App.DB.SaveChanges();
             this.DialogResult = true;
-            new HelloWindow(contextEmployee).ShowDialog();
         }
 
         private void BSend_Click(object sender, RoutedEventArgs e)
         {
-            var chatMessage = new ChatMessage() {Sender_Id = contextEmployeeChatroom.Employee.Id, Chatroom_Id = contextEmployeeChatroom.Chatroom_Id, Date=DateTime.Now, Message=TBMessage.Text};
+            var chatMessage = new ChatMessage() {Sender_Id = App.LoggedEmployee.Id, Chatroom_Id = contextChatroom.Id, Date=DateTime.Now, Message=TBMessage.Text};
             App.DB.ChatMessage.Add(chatMessage);
             App.DB.SaveChanges();
             Refresh();
-            TBMessage.Text = "";
+            TBMessage.Text = String.Empty;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void BCLose_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult= true;
         }
     }
 }

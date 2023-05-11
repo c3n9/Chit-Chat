@@ -15,5 +15,6 @@ namespace ChitChat
     public partial class App : Application
     {
         public static ChitChatEntities DB = new ChitChatEntities();
+        public static Employee LoggedEmployee;
     }
 }

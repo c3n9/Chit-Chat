@@ -5,10 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChitChat"
         mc:Ignorable="d"
-        Title="ChitChat" Height="450" Width="800"
-        Visibility="Hidden"
-        Icon="/Resources/chat.ico">
+        Title="ChitChat"
+        Height="250" Width="300"
+        Icon="/Resources/chat.ico"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <TextBlock Text="Username:"
+                       FontSize="18" />
+            <TextBox x:Name="TBUsername"
+                     FontSize="18"
+                     Text="cjoyce" />
+            <TextBlock Text="Password:"
+                       FontSize="18" />
+            <PasswordBox x:Name="PBPassword"
+                         FontSize="18"
+                         Password="cejoyce10" />
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Button x:Name="BLogin"
+                        Content="Ok"
+                        Click="BLogin_Click"
+                        FontSize="18"
+                        Width="100"
+                        Background="#54b9f7"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        Margin="5" />
+                <Button x:Name="BCancel"
+                        Content="Cancel"
+                        Click="BCancel_Click"
+                        FontSize="18"
+                        Width="100"
+                        Background="#ffff"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        Margin="5" />
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

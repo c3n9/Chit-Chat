@@ -20,39 +20,39 @@ namespace ChitChat.AppWindows
     /// </summary>
     public partial class HelloWindow : Window
     {
-        Employee contextEmployee;
-        public HelloWindow(Employee employee)
+        public HelloWindow()
         {
             InitializeComponent();
-            contextEmployee=employee;
-            DataContext = contextEmployee;
-            
+            DataContext = App.LoggedEmployee;
+            Refresh();
+
         }
         private void Refresh()
         {
-            DGChats.ItemsSource = App.DB.EmployeeChatroom.Where(x => x.Employee_Id == contextEmployee.Id).ToList();
+            DGChats.ItemsSource = App.DB.Chatroom.ToList().Where(c => c.EmployeeChatroom.Select(emp=> emp.Employee).Contains(App.LoggedEmployee)).ToList();
         }
         private void BEmployeeFinder_Click(object sender, RoutedEventArgs e)
         {
+            new EmployeeFinderWindow(new Chatroom()).Show();
             this.Close();
-            new EmployeeFinderWindow(contextEmployee).ShowDialog();
         }
 
         private void BCloseApplication_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            App.Current.Shutdown();
         }
 
         private void DGChats_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var employeeChatroom = DGChats.SelectedItem as EmployeeChatroom;
-            if(employeeChatroom == null)
+            var chatroom = DGChats.SelectedItem as Chatroom;
+            if(chatroom == null)
             {
                 MessageBox.Show("Select chatroom");
                 return;
             }
-            this.Close();
-            new ChatRoomWindow(employeeChatroom, contextEmployee).ShowDialog();
+            var result = new ChatRoomWindow(chatroom).ShowDialog();
+            if (result.Value)
+                Refresh();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

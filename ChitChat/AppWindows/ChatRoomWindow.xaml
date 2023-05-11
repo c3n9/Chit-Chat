@@ -5,38 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChitChat.AppWindows"
         mc:Ignorable="d"
-        Title="ChitChat" Height="450" Width="800"
-        ResizeMode="NoResize"
+        Title="ChitChat"
+        Height="450"
+        Width="800"
         WindowStartupLocation="CenterScreen"
-        Icon="/Resources/chat.ico">
+        Icon="/Resources/chat.ico"
+        Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition  />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
             <RowDefinition />
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <TextBlock Text="{Binding Chatroom.Topic, StringFormat='Topic: {0}'}" 
-                   Grid.ColumnSpan="2"/>
+        <Grid Grid.ColumnSpan="2" >
+            <TextBlock Text="{Binding Topic, StringFormat='Topic: {0}'}"
+                       HorizontalAlignment="Left"/>
+            <Button x:Name="BCLose"
+                    Content="Close"
+                    Click="BCLose_Click"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    Background="White"
+                    HorizontalAlignment="Right"
+                    Width="75"/>
+        </Grid>
+
         <Grid Grid.Row="1"
-                    Width="200">
+              Width="200">
             <ListView x:Name="LVEmployees">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Employee.Name}" />
+                        <TextBlock Text="{Binding Name}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
             <StackPanel VerticalAlignment="Bottom">
                 <Button x:Name="BAddUser"
                         Content="Add User"
-                        Click="BAddUser_Click" 
+                        Click="BAddUser_Click"
                         Background="White"
                         BorderBrush="Black"
-                        BorderThickness="2"/>
+                        BorderThickness="2" />
                 <Button x:Name="BChangeTopic"
                         Content="Change Topic"
                         Click="BChangeTopic_Click"
@@ -51,28 +64,29 @@
                         BorderThickness="2" />
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="2"
-              Grid.ColumnSpan="2">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text=":P"
-                           FontSize="16"/>
-                <TextBox x:Name="TBMessage" 
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         Width="713"
-                         FontSize="16"
-                         MaxLength="500"/>
-            </StackPanel>
+        <DockPanel Grid.Row="2"
+                   Grid.ColumnSpan="2">
+            <TextBlock Text=":P"
+                       FontSize="16"
+                       DockPanel.Dock="Left" />
             <Button x:Name="BSend"
+                    DockPanel.Dock="Right"
                     Content="Send"
                     Click="BSend_Click"
-                    HorizontalAlignment="Right"
-                    Width="75"
                     Height="100"
+                    Width="75"
                     BorderThickness="2"
                     Background="#54b9f7"
-                    BorderBrush="Black"/>
-        </Grid>
+                    BorderBrush="Black"
+                    IsDefault="True" />
+            <TextBox x:Name="TBMessage"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     FontSize="16"
+                     Height="100"
+                     HorizontalScrollBarVisibility="Auto"
+                     MaxLength="500"/>
+        </DockPanel>
         <ListView Grid.Row="1"
                   Grid.Column="1"
                   x:Name="LVChatMessages"
@@ -81,19 +95,14 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Date, StringFormat='{}{0:[HH:mm]}'}" />
-                        <TextBlock Text="{Binding Employee.Name}" 
-                                   Margin="5,0,0,0"/>
-                        <TextBlock Text="{Binding Message,StringFormat=': {0}'}" 
+                        <TextBlock Text="{Binding Employee.Name}"
+                                   Margin="5,0,0,0" />
+                        <TextBlock Text="{Binding Message,StringFormat=': {0}'}"
                                    TextWrapping="Wrap"
-                                   Width="460"/>
+                                   Width="460" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Vertical" />
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
         </ListView>
 
 

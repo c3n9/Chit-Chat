@@ -6,27 +6,18 @@ using System.Threading.Tasks;
 
 namespace ChitChat.Model
 {
-    public partial class  EmployeeChatroom
+    public partial class Chatroom
     {
-       public string LastChatMessage
+        public string LastChatMessage
         {
             get
             {
-                int g = 0;
-                int k = 0;
-                string result = "";
-                var message = Chatroom.ChatMessage.ToList();
-                foreach(var m in message)
+                var message = this.ChatMessage.LastOrDefault();
+                if (message == null)
                 {
-                    g++;
+                    return string.Empty;
                 }
-                foreach(var m in message)
-                {
-                    k++;
-                    if (k == g)
-                        result = m.Message;
-                }
-                return result;
+                return message.Message;
             }
         }
     }

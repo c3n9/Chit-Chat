@@ -26,7 +26,7 @@
                       AutoGenerateColumns="False"
                       MouseDoubleClick="DGChats_MouseDoubleClick">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Topic" Binding="{Binding Chatroom.Topic}"/>
+                    <DataGridTextColumn Header="Topic" Binding="{Binding Topic}"/>
                     <DataGridTextColumn Header="LastMessage" Binding="{Binding LastChatMessage}"/>
                 </DataGrid.Columns>
             </DataGrid>
