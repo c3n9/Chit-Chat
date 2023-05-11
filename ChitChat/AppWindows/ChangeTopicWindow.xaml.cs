@@ -37,8 +37,13 @@ namespace ChitChat.AppWindows
                 App.DB.Chatroom.Add(contextChatroom);
                 App.DB.EmployeeChatroom.Add(new EmployeeChatroom() { Chatroom_Id = contextChatroom.Id, Employee_Id = contextEmployee.Id });
                 App.DB.EmployeeChatroom.Add(new EmployeeChatroom() { Chatroom_Id = contextChatroom.Id, Employee_Id = App.LoggedEmployee.Id });
+                if (String.IsNullOrWhiteSpace(contextChatroom.Topic))
+                {
+                    MessageBox.Show("Enter name topic");
+                    return;
+                }
                 App.DB.SaveChanges();
-                new ChatRoomWindow(contextChatroom).Show();
+                new ChatRoomWindow(contextChatroom).ShowDialog();
                 this.Close();
             }
             else

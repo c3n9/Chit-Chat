@@ -76,7 +76,7 @@ namespace ChitChat.AppWindows
 
         private void BCLose_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult= true;
+            this.DialogResult = true;
         }
     }
 }

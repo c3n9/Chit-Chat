@@ -83,6 +83,8 @@ namespace ChitChat.AppWindows
             if(contextChatroom.Id == 0)
             {
                 new ChangeTopicWindow(contextChatroom,selectedEmployee).ShowDialog();
+                new HelloWindow().Show();
+                this.Close();
             }
             else
             {
