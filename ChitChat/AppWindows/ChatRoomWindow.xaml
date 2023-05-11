@@ -33,13 +33,22 @@
             <StackPanel VerticalAlignment="Bottom">
                 <Button x:Name="BAddUser"
                         Content="Add User"
-                        Click="BAddUser_Click" />
+                        Click="BAddUser_Click" 
+                        Background="White"
+                        BorderBrush="Black"
+                        BorderThickness="2"/>
                 <Button x:Name="BChangeTopic"
                         Content="Change Topic"
-                        Click="BChangeTopic_Click" />
+                        Click="BChangeTopic_Click"
+                        Background="White"
+                        BorderBrush="Black"
+                        BorderThickness="2" />
                 <Button x:Name="BLeave"
                         Content="Leave Chatroom"
-                        Click="BLeave_Click" />
+                        Click="BLeave_Click"
+                        Background="White"
+                        BorderBrush="Black"
+                        BorderThickness="2" />
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2"
