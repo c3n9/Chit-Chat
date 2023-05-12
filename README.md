@@ -1,18 +1,14 @@
 
-# $${\color{blue}ChitChat}$$
-
+# ChitChat
 ## Login window
-
 ![image](https://github.com/c3n9/Chit-Chat/assets/108518693/e55e6071-d037-4bb2-b87c-0983548fee19)
 ## Hello window
-
 ![image](https://github.com/c3n9/Chit-Chat/assets/108518693/f052fbde-d44b-4474-b53a-36fb19d15138)
 ## Employee finder window
-
-![image](https://github.com/c3n9/Chit-Chat/assets/108518693/8bd9759a-0283-4f46-bdaa-aa55000cd4c4)
+![image](https://github.com/c3n9/Chit-Chat/assets/108518693/21c7a64d-2d4c-491a-a600-91aa25a05a5e)
 ## Chatroom window
+![image](https://github.com/c3n9/Chit-Chat/assets/108518693/4e2855d6-eccd-430a-9f39-f87ce1119489)
+##Change the chatroom topic or create chatroom
+![image](https://github.com/c3n9/Chit-Chat/assets/108518693/d107a95f-062e-44f6-932d-fd1dee4297a0)
 
-![image](https://github.com/c3n9/Chit-Chat/assets/108518693/4ba01ab6-3a29-414b-83a5-f363ef7ed167)
-## Add User window
 
-![image](https://github.com/c3n9/Chit-Chat/assets/108518693/7aae6720-9dc2-4021-b290-a6a76c0e860b)
